@@ -18,15 +18,17 @@ import { factorial } from "./tools";
 /**
  * Create a function which performs a move on a coordinate.
  */
-const createMoveHandler = (
-  getVector: GetVectorCallback,
-  cubieMove: CubieMoveCallback,
-  getIndex: GetIndexCallback
-) => (index: number, move: number) => {
-  let vector = getVector(index);
-  vector = cubieMove(vector, move);
-  return getIndex(vector);
-};
+const createMoveHandler =
+  (
+    getVector: GetVectorCallback,
+    cubieMove: CubieMoveCallback,
+    getIndex: GetIndexCallback
+  ) =>
+  (index: number, move: number) => {
+    let vector = getVector(index);
+    vector = cubieMove(vector, move);
+    return getIndex(vector);
+  };
 
 type GetVectorCallback = (index: number) => number[];
 type CubieMoveCallback = (pieces: number[], moveIndex: number) => number[];

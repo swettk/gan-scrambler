@@ -25,8 +25,10 @@
     "workbox-routing": "^6.0.2",
     "workbox-strategies": "^6.0.2"
   },
-  "scripts": {
-    "start": "react-scripts start",
+  "engines": {
+    "node":"v12.22.12"
+  },
+  "scripts": { "start": "react-scripts start",
     "build": "react-scripts build",
     "analyze": "react-scripts build --stats && webpack-bundle-analyzer build/bundle-stats.json -m static -r build/bundle-stats.html -O && open build/bundle-stats.html",
     "test": "react-scripts test",
@@ -52,9 +54,6 @@
       "prettier",
       "@typescript-eslint"
     ],
-    "rules": {
-      "prettier/prettier": "error"
-    },
     "overrides": [
       {
         "files": [
@@ -105,7 +104,7 @@
     "react-scripts": "^4.0.0",
     "tailwindcss": "^2.0.2",
     "tailwindcss-children": "^2.1.0",
-    "typescript": "^3.9.7",
+    "typescript": "^3.9.10",
     "webpack-bundle-analyzer": "^4.4.0"
   }
 }

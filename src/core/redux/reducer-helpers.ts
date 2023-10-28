@@ -24,4 +24,7 @@ export const setReducer = <T>(
   return state;
 };
 
-export const valueReducer = <T>(value: T): (() => T) => () => value;
+export const valueReducer =
+  <T>(value: T): (() => T) =>
+  () =>
+    value;

@@ -111,21 +111,20 @@ class Search {
 
     for (let i = 0; i < this.pruningTables.length; i += 1) {
       let index = indexes[this.pruningTables[i].moveTableIndexes[0]];
-      let power = 1;
+      const power = 1;
 
       for (
         let j = 1;
         j < this.pruningTables[i].moveTableIndexes.length;
         j += 1
       ) {
-        power *= this.moveTables[this.pruningTables[i].moveTableIndexes[j - 1]]
-          .size;
+        ower *=
+          this.moveTables[this.pruningTables[i].moveTableIndexes[j - 1]].size;
         index += indexes[this.pruningTables[i].moveTableIndexes[j]] * power;
       }
 
-      const distance = this.pruningTables[i].pruningTable.getPruningValue(
-        index
-      );
+      const distance =
+        this.pruningTables[i].pruningTable.getPruningValue(index);
 
       if (distance > depth) {
         return false;
