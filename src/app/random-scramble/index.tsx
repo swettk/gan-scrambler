@@ -7,7 +7,6 @@ import { generateScramble } from "core/cube/scramblers/full";
 import { ButtonRow, ContentContainer } from "core/components/presentation";
 
 import { getRobotServer } from "app/robot/store/selectors";
-import { CubePreview } from "app/cube-preview";
 import { scrambleSubmitted } from "app/robot/store/actions";
 
 export const RandomScramble = (): JSX.Element => {
@@ -46,8 +45,6 @@ export const RandomScramble = (): JSX.Element => {
           disabled
         />
       </div>
-
-      <CubePreview scrambleCode={scramble} />
 
       <ButtonRow>
         <Button variant="contained" onClick={handleScrambleClick}>

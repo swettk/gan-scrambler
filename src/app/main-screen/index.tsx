@@ -5,13 +5,8 @@ import {
   Typography,
   BottomNavigation,
   BottomNavigationAction,
-  Paper,
-  List,
-  ListItem,
-  ListItemIcon,
-  ListItemText,
 } from "@material-ui/core";
-import { Shuffle, Layers, Edit } from "@material-ui/icons";
+import { Shuffle } from "@material-ui/icons";
 import { FormattedMessage } from "react-intl";
 import { useDispatch } from "react-redux";
 import tag from "classed.macro";
@@ -20,23 +15,13 @@ import { detectBluetoothSupport } from "core/utils/feature-detection";
 import { useSessionStorage } from "core/hooks/useSessionStorage";
 
 import { RobotWidget } from "app/robot/widget";
-import { CFOPScramble } from "app/cfop-scramble";
 import { RandomScramble } from "app/random-scramble";
-import { ManualScramble } from "app/manual-scramble";
 import { appInitialized } from "app/main-screen/actions";
 import { IncompatibleBrowserDialog } from "app/incompatible-browser-dialoag";
 
 const Screen = tag.div`flex flex-col h-screen`;
 
-const MenuItemContent = tag.div`computer:flex hidden flex-row items-center`;
-
-const CompactMenuItemContent = tag.div`
-  hidden landscape:inline-flex flex-col items-center justify-center text-on-background w-full
-`;
-
 const IconContainer = tag.div`flex flex-row ml-auto`;
-
-const IconWrapper = tag.div`text-icon-on-background`;
 
 export const MainScreen = (): JSX.Element => {
   const [navigationValue, setNavigation] = React.useState("random");
@@ -72,36 +57,8 @@ export const MainScreen = (): JSX.Element => {
       </AppBar>
 
       <div className="flex flex-row h-full w-full">
-        <Paper className="hidden landscape:block computer:block w-6 computer:w-12">
-          <List>
-            <ListItem
-              button
-              key="manual"
-              selected={navigationValue === "manual"}
-              onClick={() => setNavigation("manual")}
-            >
-              <MenuItemContent>
-                <ListItemIcon>
-                  <Edit />
-                </ListItemIcon>
-                <ListItemText primary="MANUAL" />
-              </MenuItemContent>
-
-              <CompactMenuItemContent>
-                <IconWrapper>
-                  <Edit />
-                </IconWrapper>
-                <span>MANUAL</span>
-              </CompactMenuItemContent>
-            </ListItem>
-          </List>
-        </Paper>
-
         <div className="flex flex-grow flex-col h-full">
           {navigationValue === "random" && <RandomScramble />}
-          {navigationValue === "cfop" && <CFOPScramble />}
-          {navigationValue === "manual" && <ManualScramble />}
-
           <div className="landscape:hidden computer:hidden w-full mt-auto">
             <BottomNavigation
               showLabels
@@ -114,18 +71,6 @@ export const MainScreen = (): JSX.Element => {
                 value="random"
                 label="RANDOM"
                 aria-label="random"
-              />
-              <BottomNavigationAction
-                icon={<Layers />}
-                value="cfop"
-                label="CFOP"
-                aria-label="cfop"
-              />
-              <BottomNavigationAction
-                icon={<Edit />}
-                value="manual"
-                label="MANUAL"
-                aria-label="manual"
               />
             </BottomNavigation>
           </div>
