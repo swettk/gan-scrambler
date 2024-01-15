@@ -76,48 +76,6 @@ export const MainScreen = (): JSX.Element => {
           <List>
             <ListItem
               button
-              key="random"
-              selected={navigationValue === "random"}
-              onClick={() => setNavigation("random")}
-            >
-              <MenuItemContent>
-                <ListItemIcon>
-                  <Shuffle />
-                </ListItemIcon>
-                <ListItemText primary="RANDOM" />
-              </MenuItemContent>
-
-              <CompactMenuItemContent>
-                <IconWrapper>
-                  <Shuffle />
-                </IconWrapper>
-                <span>RANDOM</span>
-              </CompactMenuItemContent>
-            </ListItem>
-
-            <ListItem
-              button
-              key="cfop"
-              selected={navigationValue === "cfop"}
-              onClick={() => setNavigation("cfop")}
-            >
-              <MenuItemContent>
-                <ListItemIcon>
-                  <Layers />
-                </ListItemIcon>
-                <ListItemText primary="CFOP" />
-              </MenuItemContent>
-
-              <CompactMenuItemContent>
-                <IconWrapper>
-                  <Layers />
-                </IconWrapper>
-                <span>CFOP</span>
-              </CompactMenuItemContent>
-            </ListItem>
-
-            <ListItem
-              button
               key="manual"
               selected={navigationValue === "manual"}
               onClick={() => setNavigation("manual")}

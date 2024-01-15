@@ -1,7 +1,7 @@
 {
   "appTitle": "GAN Scrambler",
   "scramble": {
-    "actions":{
+    "actions": {
       "scramble": "Scramble",
       "send": "Send"
     }
