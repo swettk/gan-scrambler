@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Button, InputLabel, OutlinedInput, Tooltip } from "@material-ui/core";
 import { FormattedMessage } from "react-intl";
@@ -8,6 +8,8 @@ import { ButtonRow, ContentContainer } from "core/components/presentation";
 
 import { getRobotServer } from "app/robot/store/selectors";
 import { scrambleSubmitted } from "app/robot/store/actions";
+
+import { useHotkeys } from "react-hotkeys-hook";
 
 export const RandomScramble = (): JSX.Element => {
   const [scramble, setScramble] = useState<string>("");
@@ -29,6 +31,53 @@ export const RandomScramble = (): JSX.Element => {
     : !scramble
     ? "Scramble required"
     : "";
+
+  useEffect(() => {
+    dispatch(scrambleSubmitted(scramble));
+    setScramble("");
+  }, [scramble]);
+
+  // L B F D R
+
+  useHotkeys("l", () => {
+    setScramble("L");
+  });
+
+  useHotkeys("Shift+l", () => {
+    setScramble("L'");
+  });
+
+  useHotkeys("b", () => {
+    setScramble("B");
+  });
+
+  useHotkeys("Shift+b", () => {
+    setScramble("B'");
+  });
+
+  useHotkeys("F", () => {
+    setScramble("F");
+  });
+
+  useHotkeys("Shift+F", () => {
+    setScramble("F'");
+  });
+
+  useHotkeys("r", () => {
+    setScramble("R");
+  });
+
+  useHotkeys("Shift+r", () => {
+    setScramble("R'");
+  });
+
+  useHotkeys("d", () => {
+    setScramble("D");
+  });
+
+  useHotkeys("Shift+d", () => {
+    setScramble("D'");
+  });
 
   return (
     <ContentContainer>

@@ -11,7 +11,6 @@ import { watchSnackbarActions } from "core/snackbar/sagas";
 import { createStore } from "core/redux/store";
 import { importAll } from "core/utils/webpack";
 
-//import { fiveSideSearch } from "core/cube/solvers/five-side-solver";
 import { MainScreen } from "app/main-screen";
 
 import { messages, locale } from "./translations";
@@ -32,7 +31,6 @@ import "./styles/main.css";
 importAll(require.context("./", true, /\/init-store\.(ts|tsx)$/));
 
 function renderApp() {
-  //fiveSideSearch.initialize();
   const snackbar = React.createRef<SnackbarProvider>();
   const store = createStore();
   store.runSaga(watchSnackbarActions, snackbar);
