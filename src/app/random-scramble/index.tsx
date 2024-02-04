@@ -43,7 +43,7 @@ export const RandomScramble = (): JSX.Element => {
     setScramble("L");
   });
 
-  useHotkeys("Shift+l", () => {
+  useHotkeys("o", () => {
     setScramble("L'");
   });
 
@@ -51,15 +51,15 @@ export const RandomScramble = (): JSX.Element => {
     setScramble("B");
   });
 
-  useHotkeys("Shift+b", () => {
+  useHotkeys("n", () => {
     setScramble("B'");
   });
 
-  useHotkeys("F", () => {
+  useHotkeys("f", () => {
     setScramble("F");
   });
 
-  useHotkeys("Shift+F", () => {
+  useHotkeys("g", () => {
     setScramble("F'");
   });
 
@@ -67,7 +67,7 @@ export const RandomScramble = (): JSX.Element => {
     setScramble("R");
   });
 
-  useHotkeys("Shift+r", () => {
+  useHotkeys("t", () => {
     setScramble("R'");
   });
 
@@ -75,7 +75,7 @@ export const RandomScramble = (): JSX.Element => {
     setScramble("D");
   });
 
-  useHotkeys("Shift+d", () => {
+  useHotkeys("a", () => {
     setScramble("D'");
   });
 
